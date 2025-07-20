@@ -1,0 +1,29 @@
+CREATE DATABASE comida_magaly;
+USE comida_magaly;
+
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+INSERT INTO usuarios (usuario, password) 
+VALUES ('Magaly Suez', '$2y$10$Hx3o6T5f1zD9Y7u8Iq9sUuZJcKv2WbX1yL0aM3nV4p7rT6gH5dF4e');
+
+CREATE TABLE platos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    descripcion TEXT NOT NULL,
+    precio DECIMAL(10,2) NOT NULL,
+    critica TEXT NOT NULL,
+    tipo ENUM('principal', 'sopa', 'refresco') NOT NULL,
+    imagen VARCHAR(255) DEFAULT NULL,
+    fecha_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE contactos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    telefono VARCHAR(20) NOT NULL
+);
+
+INSERT INTO contactos (telefono) VALUES ('+51 999 888 777');
